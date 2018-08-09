@@ -1,0 +1,21 @@
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, price INTEGER, stock INTEGER, sold INTEGER);
+INSERT INTO store VALUES (1, "Graphics Card", 350, 5, 3);
+INSERT INTO store VALUES (2, "Processor", 400, 7, 15);
+INSERT INTO store VALUES (3, "Power Supply", 100, 4, 3);
+INSERT INTO store VALUES (4, "Mouse", 30, 2, 8);
+INSERT INTO store VALUES (5, "Keyboard", 40, 5, 20);
+INSERT INTO store VALUES (6, "Speakers", 45, 9, 13);
+INSERT INTO store VALUES (7, "Motherboard", 250, 3, 2);
+INSERT INTO store VALUES (8, "SSD Storage", 300, 10, 3);
+INSERT INTO store VALUES (9, "Storage Drive", 200, 8, 6);
+INSERT INTO store VALUES (10, "Flash Drive", 20, 7, 9);
+INSERT INTO store VALUES (11, "Sound Card", 220, 1, 14);
+INSERT INTO store VALUES (12, "Monitor", 100, 2, 23);
+INSERT INTO store VALUES (13, "External Drive", 150, 1, 3);
+INSERT INTO store VALUES (14, "Phone", 260, 4, 3);
+INSERT INTO store VALUES (15, "Router", 30, 6, 3);
+
+SELECT * FROM store ORDER BY PRICE;
+SELECT item, MAX(sold) AS "highest sold" FROM store;
+SELECT item, MIN(sold) AS "lowest sold" FROM store;
+SELECT SUM(stock*price) AS "total revenue" FROM store;
