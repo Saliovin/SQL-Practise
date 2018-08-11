@@ -1,4 +1,3 @@
-/* Create table about the people and what they do here */
 CREATE TABLE stars (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT,
