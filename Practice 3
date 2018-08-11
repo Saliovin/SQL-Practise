@@ -1,0 +1,71 @@
+/* Create table about the people and what they do here */
+CREATE TABLE stars (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    age INTEGER);
+    
+INSERT INTO stars (name, age) VALUES ("Robert Downey Jr.", 53);
+INSERT INTO stars (name, age) VALUES ("Leonardo DiCaprio", 43);
+INSERT INTO stars (name, age) VALUES ("Tom Cruise", 56);
+INSERT INTO stars (name, age) VALUES ("Johnny Depp", 55);
+INSERT INTO stars (name, age) VALUES ("George Clooney", 57);
+INSERT INTO stars (name, age) VALUES ("Katie Holmes", 39);
+INSERT INTO stars (name, age) VALUES ("Susan Downey", 44);
+INSERT INTO stars (name, age) VALUES ("Chris Evans", 37);
+INSERT INTO stars (name, age) VALUES ("Jennifer Lawrence", 27);
+
+CREATE TABLE movies (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT,
+    actor_id INTEGER);
+    
+INSERT INTO movies (title, actor_id) VALUES ("Eyes Wide Shut", 3);
+INSERT INTO movies (title, actor_id) VALUES ("Rango", 4);
+INSERT INTO movies (title, actor_id) VALUES ("Three Kings", 5);
+INSERT INTO movies (title, actor_id) VALUES ("Inception", 2);
+INSERT INTO movies (title, actor_id) VALUES ("The Great Gatsby", 2);
+INSERT INTO movies (title, actor_id) VALUES ("The Departed", 2);
+INSERT INTO movies (title, actor_id) VALUES ("Leather Heads", 5);
+INSERT INTO movies (title, actor_id) VALUES ("Abandon", 6);
+INSERT INTO movies (title, actor_id) VALUES ("Avengers", 8);
+INSERT INTO movies (title, actor_id) VALUES ("Avengers", 1);
+INSERT INTO movies (title, actor_id) VALUES ("Hunger Games", 9);
+
+CREATE TABLE birthplace (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    location TEXT,
+    actor_id INTEGER);
+
+INSERT INTO birthplace (location, actor_id) VALUES ("New York", 3);
+INSERT INTO birthplace (location, actor_id) VALUES ("Kentucky", 4);
+INSERT INTO birthplace (location, actor_id) VALUES ("Kentucky", 5);
+INSERT INTO birthplace (location, actor_id) VALUES ("New York", 1);
+INSERT INTO birthplace (location, actor_id) VALUES ("California", 2);
+INSERT INTO birthplace (location, actor_id) VALUES ("Ohio", 6);
+INSERT INTO birthplace (location, actor_id) VALUES ("Illinois", 7);
+INSERT INTO birthplace (location, actor_id) VALUES ("Massachusetts", 8);
+INSERT INTO birthplace (location, actor_id) VALUES ("Kentucky", 9);
+
+CREATE TABLE couple (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_a INTEGER,
+    person_b INTEGER);
+    
+INSERT INTO couple (person_a, person_b) VALUES (3, 6);
+INSERT INTO couple (person_a, person_b) VALUES (1, 7);
+
+SELECT birthplace.location, stars.name FROM birthplace
+    JOIN stars
+    ON birthplace.actor_id = stars.id
+    ORDER BY birthplace.location;
+    
+SELECT stars.name, movies.title FROM stars
+    LEFT OUTER JOIN movies
+    ON movies.actor_id = stars.id
+    ORDER BY stars.name;
+
+SELECT stars.name AS Husband, starsb.name AS Wife FROM couple
+    JOIN stars
+    ON stars.id = couple.person_a
+    JOIN stars AS starsb
+    ON starsb.id = couple.person_b;
