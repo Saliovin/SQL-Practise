@@ -1,0 +1,43 @@
+CREATE TABLE highscore (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ranking INTEGER,
+    name TEXT,
+    score INTEGER);
+    
+INSERT INTO highscore (ranking, name, score)
+    VALUES (1, "Jhon Wick", 1000000);
+INSERT INTO highscore (ranking, name, score)
+    VALUES (2, "Albert Einstein", 850000);
+INSERT INTO highscore (ranking, name, score)
+    VALUES (3, "Mary Sue", 800000);
+INSERT INTO highscore (ranking, name, score)
+    VALUES (4, "Jhon Wick", 720000);
+INSERT INTO highscore (ranking, name, score)
+    VALUES (5, "Geoff Marty", 540000);
+INSERT INTO highscore (ranking, name, score)
+    VALUES (6, "Allison Monte", 480100);
+INSERT INTO highscore (ranking, name, score)
+    VALUES (7, "Allison Monte", 366000);
+INSERT INTO highscore (ranking, name, score)
+    VALUES (8, "Maria Lamerough", 290510);
+INSERT INTO highscore (ranking, name, score)
+    VALUES (9, "John Wick", 110280);
+INSERT INTO highscore (ranking, name, score)
+    VALUES (10, "Mary Sue", 50000);
+
+SELECT * FROM highscore;
+
+UPDATE highscore SET name = "John Wick" WHERE name LIKE "Jhon%";
+
+SELECT * FROM highscore;
+
+DELETE FROM highscore where ranking = 10;
+UPDATE highscore set ranking = ranking + 1;
+INSERT INTO highscore (ranking, name, score)
+    VALUES (1, "Alex Rupert", 1500000);
+DELETE FROM highscore where ranking = 10;
+UPDATE highscore set ranking = ranking + 1 WHERE ranking > 6;
+INSERT INTO highscore (ranking, name, score)
+    VALUES (7, "JJ Rutherford", 500000);
+    
+SELECT * FROM highscore ORDER BY ranking;
